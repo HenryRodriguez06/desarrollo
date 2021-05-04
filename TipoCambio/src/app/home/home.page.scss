@@ -1,0 +1,57 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.card-cambio {
+  padding-top: 5px;
+  margin-top: 40px;
+  box-shadow: -3px 3px 14px 2px #808080;
+  height: 300px;
+  vertical-align: middle !important;
+}
+
+.card-reporte {
+  box-shadow: -3px 3px 14px 2px #808080;
+  height: 200px;
+  vertical-align: middle !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.encabezado {
+  font-size: xx-large;
+}
+
+.detalle {
+  font-size: 5em;
+}
+
+.text-report {
+  font-size: 1.5em;
+}

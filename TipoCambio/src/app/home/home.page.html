@@ -1,0 +1,71 @@
+<ion-content>
+  <ion-segment
+    color="primary"
+    [(ngModel)]="type"
+    scrollable
+  >
+    <ion-segment-button value="TipoCambio" checked>
+      <ion-label>Tipo de cambio</ion-label>
+      <ion-icon name="cash"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="Reporte">
+      <ion-label>Reporte</ion-label>
+      <ion-icon name="stats-chart-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'TipoCambio'">
+      <ion-item>
+        <ion-label>Fecha Inicio</ion-label>
+        <ion-datetime
+          [(ngModel)]="fechaInicio"
+          displayFormat="DD MM YYYY"
+          placeholder="(dd/MM/yyyy)"
+          required
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha Final</ion-label>
+        <ion-datetime
+          [(ngModel)]="fechaFinal"
+          displayFormat="DD MM YYYY"
+          placeholder="(dd/MM/yyyy)"
+          required
+        ></ion-datetime>
+      </ion-item>
+      <ion-button expand="block" (click)="consultar()">Consultar</ion-button>
+
+      <ion-card class="text-center card-cambio">
+        <ion-card-content>
+          <ion-label>
+            <p class="encabezado">Compra</p>
+            <h1 class="detalle">
+              <strong>{{promCompra}}</strong>
+            </h1>
+    
+            <p class="encabezado">Venta</p>
+            <h2 class="detalle">{{promVenta}}</h2>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'Reporte'">
+      <ion-list>
+        <ion-card *ngFor="let busqueda of listaBusqueda" class="card-reporte">
+          <ion-card-content>
+              <p class="text-report">Cantidad: <strong>{{busqueda.cantidad}}</strong></p>
+              <p class="text-report">Inicio: <strong>{{busqueda.inicio}}</strong></p>
+              <p class="text-report">Final: <strong>{{busqueda.final}}</strong></p>
+              <p class="text-report">Promedio Venta: <strong>{{busqueda.venta}}</strong></p>
+              <p class="text-report">Promedio Compra: <strong>{{busqueda.compra}}</strong></p>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-list>
+
+    </ng-container>
+  </div>
+</ion-content>
